@@ -10,6 +10,19 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
 dependencies = ["quickjs"]
+authors = [
+    { name = "Qalxry", email = "qalxry@qq.com" },
+]
+keywords = ["mathjax", "latex", "svg", "math", "rendering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Markup :: LaTeX",
+]
+
+[project.urls]
+Homepage = "https://github.com/Qalxry/QuickJax"
+Repository = "https://github.com/Qalxry/QuickJax"
 
 [tool.setuptools.packages.find]
 include = ["quickjax*"]
