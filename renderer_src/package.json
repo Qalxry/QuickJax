@@ -1,0 +1,16 @@
+{
+  "name": "quickjax-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MathJax v4 renderer bundle source for QuickJax",
+  "scripts": {
+    "build": "esbuild index.js --bundle --minify --platform=browser --format=iife --outfile=../quickjax/js/mathjax_bundle.js"
+  },
+  "dependencies": {
+    "mathjax-full": "4.0.0-beta.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
