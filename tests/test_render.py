@@ -21,8 +21,7 @@ def renderer():
 class TestBasicRender:
     def test_simple_equation(self, renderer):
         svg = renderer.render(r"E = mc^2")
-        assert "<mjx-container" in svg
-        assert "<svg" in svg
+        assert svg.strip().startswith("<svg")
         assert "</svg>" in svg
 
     def test_inline_mode(self, renderer):

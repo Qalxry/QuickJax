@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """QuickJax Demo — 大量 LaTeX 渲染示例，涵盖各种数学场景。"""
 
+import os
 import time
 from quickjax import MathJaxRenderer, render
 
 
-def demo_render(renderer: MathJaxRenderer, label: str, latex: str, display: bool = True) -> None:
+def demo_render(renderer: MathJaxRenderer, label: str, latex: str, display: bool = True, save: bool = True) -> None:
     """渲染并打印简要结果。"""
     t0 = time.perf_counter()
     svg = renderer.render(latex, display=display)
@@ -13,6 +14,11 @@ def demo_render(renderer: MathJaxRenderer, label: str, latex: str, display: bool
     ok = "<svg" in svg
     status = "✓" if ok else "✗"
     print(f"  {status} [{elapsed:6.1f}ms] {label}")
+    if save:
+        os.makedirs("outputs", exist_ok=True)
+        filename = f"outputs/demo_{label.replace(' ', '_').replace('/', '_')}.svg"
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(svg)
     if not ok:
         print(f"    OUTPUT: {svg[:120]}...")
 
