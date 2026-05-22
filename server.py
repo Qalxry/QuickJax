@@ -294,7 +294,9 @@ def main() -> None:
     server = QuickJaxHTTPServer((args.host, args.port), QuickJaxRequestHandler)
     url = f"http://{args.host}:{args.port}"
     print(f"QuickJax API server listening on {url}")
-    print("Endpoints: GET /health, POST /render, GET /render?latex=...")
+    print("Endpoints:")
+    print("  JSON:   GET /health, POST|GET /render")
+    print("  SVG:    POST|GET /render/svg, POST|GET /svg")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
